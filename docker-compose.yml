@@ -1,0 +1,17 @@
+version: '3'
+services:
+  pet-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: crawl-app
+    working_dir: /var/www/
+    ports:
+      - "3001:3001"
+    volumes:
+      - .:/var/www/
+    networks:
+      - crawl-network
+networks:
+  crawl-network:
+    driver: bridge

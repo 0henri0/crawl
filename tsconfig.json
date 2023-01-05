@@ -1,15 +1,22 @@
 {
   "compilerOptions": {
     "module": "commonjs",
-    "baseUrl": "src",
+    "baseUrl": "./",
     "outDir": "./dist",
     "target": "es2016",
+    "moduleResolution": "node",
     "removeComments": true,
     "declaration": true,
     "noImplicitAny": false,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "emitDecoratorMetadata": true,
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "paths": {
+      "@src/*": ["./src/*"]
+    }
+  },
+  "ts-node": {
+    "require": ["./node_modules/tsconfig-paths/register"]
   }
 }
