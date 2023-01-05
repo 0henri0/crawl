@@ -1,9 +1,13 @@
+import Crawl from './Crawl';
+import Post from './Post';
 import * as dotenv from 'dotenv';
 dotenv.config();
-import express, { Express, Request, Response } from 'express';
+import 'reflect-metadata';
+import { createExpressServer, useExpressServer } from 'routing-controllers';
 
-const app: Express = express();
-app.get('/', (req: Request, res: Response) => {
-  res.send('Express + TypeScript Server');
-});
+const app = createExpressServer();
+
+useExpressServer(app, Crawl);
+useExpressServer(app, Post);
+
 export default app;
