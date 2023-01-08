@@ -1,22 +1,30 @@
 {
   "compilerOptions": {
+    "allowJs": true,
     "module": "commonjs",
-    "baseUrl": "./",
+    "baseUrl": ".",
     "outDir": "./dist",
-    "target": "es2016",
+    "target": "es6",
     "moduleResolution": "node",
     "removeComments": true,
-    "declaration": true,
     "noImplicitAny": false,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "paths": {
-      "@src/*": ["./src/*"]
-    }
+      "@src/*": [
+        "./src/*"
+      ]
+    },
   },
+  "exclude": [
+    "node_modules",
+    ".vscode"
+  ],
   "ts-node": {
-    "require": ["./node_modules/tsconfig-paths/register"]
-  }
+    "require": [
+      "./node_modules/tsconfig-paths/register"
+    ]
+  },
 }

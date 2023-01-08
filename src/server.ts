@@ -9,6 +9,12 @@ console.log('Hello world!');
 
 app.set('port', port);
 
+app.get('/health-check', (req, res) => {
+  res.status(200).send('OK');
+});
+
 const server: Server = http.createServer(app);
 
-server.listen(port);
+server.listen(port, () => {
+  console.log('Listening on ' + port);
+});

@@ -1,0 +1,20 @@
+FROM node:18-alpine
+
+WORKDIR /var/www/
+
+USER node
+
+ARG NODE_ENV=production
+ENV NODE_ENV $NODE_ENV
+
+RUN chown node:node /var/www/
+COPY package*.json ./
+
+RUN yarn install --production
+
+COPY dist dist
+COPY .env.prod .env
+
+EXPOSE 3001
+
+CMD [ "node","-r", "./node_modules/module-alias/register", "dist/server.js" ]

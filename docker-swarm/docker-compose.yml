@@ -1,0 +1,19 @@
+version: '3.7'
+services:
+  crawl-app:
+    image: thainv1612/crawl-app_production:latest
+    working_dir: /var/www/
+    ports:
+      - "3002:3001"
+    deploy:
+      replicas: 10
+      update_config:
+        parallelism: 1
+        order: start-first
+    healthcheck:
+      test: wget --quiet --tries=1 --spider  http://localhost:3001/health-check || exit 1
+      interval: 1m30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+

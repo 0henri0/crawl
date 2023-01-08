@@ -1,9 +1,8 @@
 version: '3'
 services:
-  pet-app:
-    build:
-      context: .
-      dockerfile: Dockerfile
+  crawl-app:
+    build: .
+    image: localhost:3001/thainv1612/crawl-app
     container_name: crawl-app
     working_dir: /var/www/
     ports:
